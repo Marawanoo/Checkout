@@ -1,4 +1,3 @@
-import 'package:checkout_app/features/checkout/presentation/views/add_new_card_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -18,7 +17,6 @@ class CheckoutButton extends StatelessWidget {
         Navigator.pushNamed(context, routeName);
         if (routeName == 'checkout') {
           showDialog(
-            useSafeArea: false,
             context: context,
             barrierDismissible: false,
             builder: (context) => const PaymentSuccessDialog(),

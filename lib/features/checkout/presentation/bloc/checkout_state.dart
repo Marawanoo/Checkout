@@ -5,6 +5,8 @@ import '../../data/models/product_item_model.dart';
 class CheckoutState extends Equatable {
   final List<ProductItemModel> products;
   final double totalPrice;
+  @override
+  List<Object?> get props => [];
 
   const CheckoutState({
     this.products = const [],
@@ -21,6 +23,21 @@ class CheckoutState extends Equatable {
     );
   }
 
+  // @override
+  // List<Object?> get props => [products, totalPrice];
+}
+
+class CheckoutInitial extends CheckoutState {}
+
+class CheckoutLoading extends CheckoutState {}
+
+class CheckoutSuccess extends CheckoutState {}
+
+class CheckoutFailure extends CheckoutState {
+  final String message;
+
+  const CheckoutFailure(this.message);
+
   @override
-  List<Object?> get props => [products, totalPrice];
+  List<Object?> get props => [message];
 }

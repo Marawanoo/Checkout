@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 
+import '../../data/models/payment_intent_input_model/payment_intent_input_model.dart';
 import '../../data/models/product_item_model.dart';
 
 abstract class CheckoutEvent extends Equatable {
@@ -7,6 +8,15 @@ abstract class CheckoutEvent extends Equatable {
 
   @override
   List<Object?> get props => [];
+}
+
+class MakePaymentEvent extends CheckoutEvent {
+  final PaymentIntentInputModel inputModel;
+
+  const MakePaymentEvent(this.inputModel);
+
+  @override
+  List<Object?> get props => [inputModel];
 }
 
 class AddProduct extends CheckoutEvent {

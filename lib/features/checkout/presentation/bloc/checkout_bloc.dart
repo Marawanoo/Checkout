@@ -1,10 +1,21 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/models/product_item_model.dart';
+import '../../domain/usecases/make_payment_usecase.dart';
 import 'checkout_event.dart';
 import 'checkout_state.dart';
 
 class CheckoutBloc extends Bloc<CheckoutEvent, CheckoutState> {
-  CheckoutBloc() : super(const CheckoutState()) {
+  final MakePaymentUseCase makePaymentUseCase;
+  CheckoutBloc({required this.makePaymentUseCase}) : super(CheckoutInitial()) {
+    on<MakePaymentEvent>((event, emit) async {
+      emit(CheckoutLoading());
+      try {
+        await makePaymentUseCase(event.inputModel);
+        emit(CheckoutSuccess());
+      } catch (e) {
+        emit(CheckoutFailure(e.toString()));
+      }
+    });
     on<AddProduct>(_onAddProduct);
     on<RemoveProduct>(_onRemoveProduct);
     on<UpdateQuantity>(_onUpdateQuantity);
