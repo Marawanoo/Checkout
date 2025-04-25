@@ -23,7 +23,8 @@ where the user reviews their selected items, sees the total price, and proceeds 
 user to securely add a new credit or debit card for payment.
 
 ### Payment Method(Stripe) Page
-<img src="assets/Screens/Payment_Card1.jpg" width="200"> <img src="assets/Screens/Payment_Card2.jpg" width="200">
+<img src="assets/Screens/Payment_Card1.jpg" width="200"> 
+<img src="assets/Screens/Payment_Card2.jpg" width="200">
 This screen displays available payment cards via Stripe and allows users to select or add a new card before confirming payment.
 
 ### Payment Method(Paypal) Page
